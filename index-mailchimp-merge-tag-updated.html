@@ -1,11 +1,3 @@
-<!doctype html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meta訊息廣告規劃工具</title>
-</head>
-<body>
 <div id="meta-ad-tool">
   <style>
     #meta-ad-tool {
@@ -174,6 +166,38 @@
       color: #6b7280;
     }
 
+
+    #meta-ad-tool .live-helper {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .live-value {
+      color: #dc2626;
+      font-weight: 800;
+    }
+
+    #meta-ad-tool .result-extra {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    #meta-ad-tool .result-extra-label {
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .result-extra-amount {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111827;
+    }
+
     #meta-ad-tool .hidden-field {
       position: absolute;
       left: -5000px;
@@ -210,15 +234,16 @@
   <div class="field">
     <label for="itemCount">1. 您預計的投廣項目數量：</label>
     <p class="hint">範例：肉毒+眼袋微整+止鼾雷射，總共3項，請輸入3</p>
-    <input id="itemCount" type="number" min="1" placeholder="請輸入投廣項目數量，例如3">
+    <input id="itemCount" type="number" min="1" placeholder="請輸入投廣項目數量，例如3" oninput="updateMessagePreview()">
   </div>
 
   <div class="field">
-    <label for="dailyMessages">2. 期望每日訊息數：</label>
+    <label for="dailyMessages">2. 期望<span class="red">每項</span>單日訊息數：</label>
     <p class="hint">
       依照診所人力，預估<span class="red">每個投廣項目</span>的<span class="red">單日目標訊息數</span>
     </p>
-    <input id="dailyMessages" type="number" min="1" placeholder="請輸入每日訊息數，例如10">
+    <input id="dailyMessages" type="number" min="1" placeholder="請輸入目標訊息數，例如10" oninput="updateMessagePreview()">
+    <span class="live-helper">您期望的每日訊息數為：<span class="live-value" id="dailyTotalMessagesAmount">0</span> 個</span>
   </div>
 
   <button type="button" onclick="calculateMetaBudget()">計算廣告月預算</button>
@@ -228,6 +253,10 @@
   <div class="result" id="resultBox">
     <div class="result-label">預估月預算</div>
     <div class="result-amount" id="resultAmount">$0元</div>
+    <div class="result-extra">
+      <div class="result-extra-label">預估每月目標訊息數為</div>
+      <div class="result-extra-amount"><span id="monthlyTargetMessagesAmount">0</span> 個</div>
+    </div>
     <p class="result-note">
       以上費用不含服務費、素材費<br>
       現在填單申請廣告代操服務，服務費最低<span class="red">12%</span>起，把握優惠！
@@ -294,6 +323,21 @@
   </div>
 
   <script>
+    function updateMessagePreview() {
+      const itemCount = Number(document.getElementById("itemCount").value);
+      const dailyMessages = Number(document.getElementById("dailyMessages").value);
+      const dailyTotalMessagesAmount = document.getElementById("dailyTotalMessagesAmount");
+
+      if (!itemCount || !dailyMessages || itemCount <= 0 || dailyMessages <= 0) {
+        dailyTotalMessagesAmount.textContent = "0";
+        return 0;
+      }
+
+      const dailyTotalMessages = itemCount * dailyMessages;
+      dailyTotalMessagesAmount.textContent = dailyTotalMessages.toLocaleString("zh-TW");
+      return dailyTotalMessages;
+    }
+
     function calculateMetaBudget() {
       const itemCount = Number(document.getElementById("itemCount").value);
       const dailyMessages = Number(document.getElementById("dailyMessages").value);
@@ -302,17 +346,23 @@
       const errorMessage = document.getElementById("errorMessage");
       const mailchimpFormWrap = document.getElementById("mailchimpFormWrap");
       const budgetInput = document.getElementById("mce-MMERGE11");
+      const monthlyTargetMessagesAmount = document.getElementById("monthlyTargetMessagesAmount");
 
       if (!itemCount || !dailyMessages || itemCount <= 0 || dailyMessages <= 0) {
         resultBox.style.display = "none";
         mailchimpFormWrap.style.display = "none";
         errorMessage.style.display = "block";
+        updateMessagePreview();
+        monthlyTargetMessagesAmount.textContent = "0";
         return;
       }
 
-      const monthlyBudget = itemCount * dailyMessages * 250 * 30;
+      const dailyTotalMessages = updateMessagePreview();
+      const monthlyTargetMessages = dailyTotalMessages * 30;
+      const monthlyBudget = monthlyTargetMessages * 250;
 
       resultAmount.textContent = "$" + monthlyBudget.toLocaleString("zh-TW") + "元";
+      monthlyTargetMessagesAmount.textContent = monthlyTargetMessages.toLocaleString("zh-TW");
       budgetInput.value = monthlyBudget;
 
       errorMessage.style.display = "none";
@@ -449,7 +499,6 @@
       document.body.appendChild(script);
       return false;
     }
+    updateMessagePreview();
   </script>
 </div>
-</body>
-</html>
