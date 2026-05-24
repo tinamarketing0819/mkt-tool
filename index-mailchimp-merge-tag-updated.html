@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meta訊息廣告規劃工具</title>
+</head>
+<body>
+<div id="meta-ad-tool">
+  <style>
+    #meta-ad-tool {
+      max-width: 620px;
+      margin: 24px auto;
+      padding: 28px;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      color: #111827;
+    }
+
+    #meta-ad-tool h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      line-height: 1.3;
+      text-align: center;
+      color: #111827;
+    }
+
+    #meta-ad-tool .field {
+      margin-bottom: 20px;
+    }
+
+    #meta-ad-tool label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    #meta-ad-tool .hint {
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .red {
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    #meta-ad-tool input,
+    #meta-ad-tool textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    #meta-ad-tool input:focus,
+    #meta-ad-tool textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    #meta-ad-tool button,
+    #meta-ad-tool input[type="submit"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 12px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      appearance: none;
+    }
+
+    #meta-ad-tool button:hover,
+    #meta-ad-tool input[type="submit"]:hover {
+      background: #1d4ed8;
+    }
+
+    #meta-ad-tool input[type="submit"]:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    #meta-ad-tool .result {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 14px;
+      background: #f9fafb;
+      text-align: center;
+      display: none;
+    }
+
+    #meta-ad-tool .result-label {
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .result-amount {
+      font-size: 30px;
+      font-weight: 800;
+      color: #dc2626;
+    }
+
+    #meta-ad-tool .result-note {
+      margin: 14px 0 0;
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    #meta-ad-tool .error {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #dc2626;
+      text-align: center;
+      display: none;
+    }
+
+    #meta-ad-tool .mc-form-wrap {
+      display: none;
+      margin-top: 26px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    #meta-ad-tool .mc-form-title {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.4;
+      color: #111827;
+      text-align: center;
+    }
+
+    #meta-ad-tool .mc-form-subtitle {
+      margin: 0 0 22px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #1e3a8a;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    #meta-ad-tool .required-note {
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .asterisk {
+      color: #dc2626;
+    }
+
+    #meta-ad-tool .helper_text {
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .hidden-field {
+      position: absolute;
+      left: -5000px;
+    }
+
+    #meta-ad-tool .mc-message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    #meta-ad-tool .mc-message.success {
+      display: block;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    #meta-ad-tool .mc-message.error {
+      display: block;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+  </style>
+
+  <h2>Meta訊息廣告規劃工具</h2>
+
+  <div class="field">
+    <label for="itemCount">1. 您預計的投廣項目數量：</label>
+    <p class="hint">範例：肉毒+眼袋微整+止鼾雷射，總共3項，請輸入3</p>
+    <input id="itemCount" type="number" min="1" placeholder="請輸入投廣項目數量，例如3">
+  </div>
+
+  <div class="field">
+    <label for="dailyMessages">2. 期望每日訊息數：</label>
+    <p class="hint">
+      依照診所人力，預估<span class="red">每個投廣項目</span>的<span class="red">單日目標訊息數</span>
+    </p>
+    <input id="dailyMessages" type="number" min="1" placeholder="請輸入每日訊息數，例如10">
+  </div>
+
+  <button type="button" onclick="calculateMetaBudget()">計算廣告月預算</button>
+
+  <div class="error" id="errorMessage">請輸入大於 0 的有效數字。</div>
+
+  <div class="result" id="resultBox">
+    <div class="result-label">預估月預算</div>
+    <div class="result-amount" id="resultAmount">$0元</div>
+    <p class="result-note">
+      以上費用不含服務費、素材費<br>
+      現在填單申請廣告代操服務，服務費最低<span class="red">12%</span>起，把握優惠！
+    </p>
+  </div>
+
+  <div class="mc-form-wrap" id="mailchimpFormWrap">
+    <h3 class="mc-form-title">申請廣告代操服務</h3>
+    <p class="mc-form-subtitle">請寫下您的需求，我將盡快與您取得聯繫，提供報價、評估提案!</p>
+
+    <form 
+      action="https://gmail.us18.list-manage.com/subscribe/post-json?u=d8aec5c2dc0113ac6f6838390&id=b57987c492&f_id=00bcace6f0"
+      method="post" 
+      id="mc-embedded-subscribe-form" 
+      name="mc-embedded-subscribe-form"
+      onsubmit="return submitMailchimpForm(event)"
+      novalidate
+    >
+      <p class="required-note"><span class="asterisk">*</span> 為必填欄位</p>
+
+      <div class="field">
+        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+        <input type="email" name="EMAIL" id="mce-EMAIL" required autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="mce-COMPANY">公司抬頭 <span class="asterisk">*</span></label>
+        <input type="text" name="COMPANY" id="mce-COMPANY" required autocomplete="organization">
+      </div>
+
+      <div class="field">
+        <label for="mce-NAME">聯絡人姓名 <span class="asterisk">*</span></label>
+        <input type="text" name="NAME" id="mce-NAME" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="mce-PHONE">聯絡電話 <span class="asterisk">*</span></label>
+        <input type="tel" name="PHONE" id="mce-PHONE" required autocomplete="tel">
+      </div>
+
+      <div class="field">
+        <label for="mce-MMERGE9">公司統編 <span class="asterisk">*</span></label>
+        <input type="text" name="MMERGE9" id="mce-MMERGE9" required inputmode="numeric">
+      </div>
+
+      <div class="field">
+        <label for="mce-MMERGE11">預估月預算 <span class="asterisk">*</span></label>
+        <input type="number" name="MMERGE11" id="mce-MMERGE11" required min="1">
+        <span class="helper_text">系統會自動帶入剛剛預估的廣告月預算，也可自行調整。</span>
+      </div>
+
+      <div class="field">
+        <label for="mce-MMERGE12">投廣需求（選填）</label>
+        <textarea name="MMERGE12" id="mce-MMERGE12" rows="4" placeholder="可填寫預計投廣項目、投放相關問題"></textarea>
+      </div>
+
+      <div class="hidden-field" aria-hidden="true">
+        <input type="text" name="b_d8aec5c2dc0113ac6f6838390_b57987c492" tabindex="-1" value="">
+      </div>
+
+      <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="送出">
+      <div id="mcMessage" class="mc-message" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <script>
+    function calculateMetaBudget() {
+      const itemCount = Number(document.getElementById("itemCount").value);
+      const dailyMessages = Number(document.getElementById("dailyMessages").value);
+      const resultBox = document.getElementById("resultBox");
+      const resultAmount = document.getElementById("resultAmount");
+      const errorMessage = document.getElementById("errorMessage");
+      const mailchimpFormWrap = document.getElementById("mailchimpFormWrap");
+      const budgetInput = document.getElementById("mce-MMERGE11");
+
+      if (!itemCount || !dailyMessages || itemCount <= 0 || dailyMessages <= 0) {
+        resultBox.style.display = "none";
+        mailchimpFormWrap.style.display = "none";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      const monthlyBudget = itemCount * dailyMessages * 250 * 30;
+
+      resultAmount.textContent = "$" + monthlyBudget.toLocaleString("zh-TW") + "元";
+      budgetInput.value = monthlyBudget;
+
+      errorMessage.style.display = "none";
+      resultBox.style.display = "block";
+      mailchimpFormWrap.style.display = "block";
+
+      setTimeout(function() {
+        mailchimpFormWrap.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 150);
+    }
+
+    function setMailchimpMessage(type, text) {
+      const messageBox = document.getElementById("mcMessage");
+      messageBox.className = "mc-message " + type;
+      messageBox.textContent = text;
+    }
+
+    function cleanMailchimpMessage(message) {
+      return String(message || "")
+        .replace(/<[^>]*>/g, "")
+        .replace(/^\d+\s*-\s*/, "")
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .trim();
+    }
+
+    function validateRequiredFields(form) {
+      const fields = [
+        { id: "mce-EMAIL", label: "Email Address" },
+        { id: "mce-COMPANY", label: "公司抬頭" },
+        { id: "mce-NAME", label: "聯絡人姓名" },
+        { id: "mce-PHONE", label: "聯絡電話" },
+        { id: "mce-MMERGE9", label: "公司統編" },
+        { id: "mce-MMERGE11", label: "預估月預算" }
+      ];
+
+      for (const field of fields) {
+        const input = document.getElementById(field.id);
+        if (!input || !String(input.value).trim()) {
+          setMailchimpMessage("error", "請填寫「" + field.label + "」。");
+          if (input) input.focus();
+          return false;
+        }
+      }
+
+      const emailInput = document.getElementById("mce-EMAIL");
+      const emailValue = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(emailValue)) {
+        setMailchimpMessage("error", "請填寫有效的 Email Address。");
+        emailInput.focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    function submitMailchimpForm(event) {
+      event.preventDefault();
+
+      const form = document.getElementById("mc-embedded-subscribe-form");
+      const submitButton = document.getElementById("mc-embedded-subscribe");
+      const messageBox = document.getElementById("mcMessage");
+
+      messageBox.className = "mc-message";
+      messageBox.textContent = "";
+
+      if (!validateRequiredFields(form)) {
+        return false;
+      }
+
+      submitButton.disabled = true;
+      submitButton.value = "送出中...";
+
+      const callbackName = "mcCallback_" + Date.now();
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+
+      formData.forEach(function(value, key) {
+        params.append(key, String(value).trim());
+      });
+
+      window[callbackName] = function(response) {
+        submitButton.disabled = false;
+        submitButton.value = "送出";
+
+        if (response && response.result === "success") {
+          setMailchimpMessage("success", "送出成功！感謝您的填寫，我將盡快與您聯繫。");
+          form.reset();
+        } else {
+          const errorText = cleanMailchimpMessage(response && response.msg ? response.msg : "送出失敗，請確認欄位內容後再試一次。");
+          setMailchimpMessage("error", errorText || "送出失敗，請確認欄位內容後再試一次。");
+        }
+
+        messageBox.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+        const oldScript = document.getElementById(callbackName);
+        if (oldScript) oldScript.remove();
+
+        try {
+          delete window[callbackName];
+        } catch (e) {
+          window[callbackName] = undefined;
+        }
+      };
+
+      const script = document.createElement("script");
+      script.id = callbackName;
+      script.src = form.action + "&" + params.toString() + "&c=" + callbackName;
+
+      script.onerror = function() {
+        submitButton.disabled = false;
+        submitButton.value = "送出";
+        setMailchimpMessage("error", "送出失敗，請檢查網路連線或稍後再試。");
+
+        const oldScript = document.getElementById(callbackName);
+        if (oldScript) oldScript.remove();
+
+        try {
+          delete window[callbackName];
+        } catch (e) {
+          window[callbackName] = undefined;
+        }
+      };
+
+      document.body.appendChild(script);
+      return false;
+    }
+  </script>
+</div>
+</body>
+</html>
