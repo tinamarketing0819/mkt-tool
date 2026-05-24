@@ -108,12 +108,152 @@
       color: #dc2626;
     }
 
-    #meta-ad-tool .result-note {
-      margin: 14px 0 0;
+    #meta-ad-tool .result-extra {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    #meta-ad-tool .result-extra-label {
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: #6b7280;
+    }
+
+    #meta-ad-tool .result-extra-amount {
+      font-size: 22px;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    #meta-ad-tool .formula-note {
+      margin: 12px 0 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 700;
+    }
+
+    #meta-ad-tool .service-section {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    #meta-ad-tool .service-title {
+      margin: 0 0 16px;
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    #meta-ad-tool .service-content {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      align-items: center;
+      text-align: left;
+    }
+
+    #meta-ad-tool .pie-chart {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(#2563eb 0deg, #e5e7eb 0deg 360deg);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+    }
+
+    #meta-ad-tool .pie-chart::after {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      border-radius: 50%;
+      background: #f9fafb;
+      box-shadow: 0 0 0 1px #e5e7eb;
+    }
+
+    #meta-ad-tool .pie-chart.animate {
+      animation: fillPieChart 1.25s ease-out forwards;
+    }
+
+    @keyframes fillPieChart {
+      0% {
+        background: conic-gradient(#2563eb 0deg, #7c3aed 0deg, #f59e0b 0deg, #dc2626 0deg, #e5e7eb 0deg 360deg);
+      }
+      40% {
+        background: conic-gradient(#2563eb 0deg 108deg, #7c3aed 108deg, #f59e0b 108deg, #dc2626 108deg, #e5e7eb 108deg 360deg);
+      }
+      75% {
+        background: conic-gradient(#2563eb 0deg 108deg, #7c3aed 108deg 180deg, #f59e0b 180deg, #dc2626 180deg, #e5e7eb 180deg 360deg);
+      }
+      100% {
+        background: conic-gradient(#2563eb 0deg 108deg, #7c3aed 108deg 180deg, #f59e0b 180deg 252deg, #dc2626 252deg 360deg);
+      }
+    }
+
+    #meta-ad-tool .service-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
       font-size: 14px;
       line-height: 1.7;
-      font-weight: 700;
-      color: #1e3a8a;
+      color: #374151;
+    }
+
+    #meta-ad-tool .service-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    #meta-ad-tool .service-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    #meta-ad-tool .service-dot.blue { background: #2563eb; }
+    #meta-ad-tool .service-dot.purple { background: #7c3aed; }
+    #meta-ad-tool .service-dot.orange { background: #f59e0b; }
+    #meta-ad-tool .service-dot.red-dot { background: #dc2626; }
+
+    #meta-ad-tool .cta-text {
+      margin: 18px 0 0;
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 900;
+      color: #111827;
+    }
+
+    #meta-ad-tool .old-rate {
+      color: #9ca3af;
+      margin-right: 2px;
+    }
+
+
+    #meta-ad-tool .countdown {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 900;
+      letter-spacing: 0.02em;
     }
 
     #meta-ad-tool .error {
@@ -166,7 +306,6 @@
       color: #6b7280;
     }
 
-
     #meta-ad-tool .live-helper {
       display: block;
       margin-top: 8px;
@@ -178,24 +317,6 @@
     #meta-ad-tool .live-value {
       color: #dc2626;
       font-weight: 800;
-    }
-
-    #meta-ad-tool .result-extra {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    #meta-ad-tool .result-extra-label {
-      margin-bottom: 6px;
-      font-size: 15px;
-      color: #6b7280;
-    }
-
-    #meta-ad-tool .result-extra-amount {
-      font-size: 22px;
-      font-weight: 800;
-      color: #111827;
     }
 
     #meta-ad-tool .hidden-field {
@@ -227,45 +348,67 @@
       color: #b91c1c;
       border: 1px solid #fecaca;
     }
+
+    @media (max-width: 520px) {
+      #meta-ad-tool .service-content {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      #meta-ad-tool .service-list {
+        width: 100%;
+        text-align: left;
+      }
+    }
   </style>
 
-  <h2>Meta訊息廣告規劃工具</h2>
+  <h2>Meta訊息廣告費試算</h2>
 
   <div class="field">
-    <label for="itemCount">1. 您預計的投廣項目數量：</label>
-    <p class="hint">範例：肉毒+眼袋微整+止鼾雷射，總共3項，請輸入3</p>
-    <input id="itemCount" type="number" min="1" placeholder="請輸入投廣項目數量，例如3" oninput="updateMessagePreview()">
+    <label for="metaMessageCost">1. 目標KPI（Meta訊息成本）：</label>
+    <input id="metaMessageCost" type="number" min="1" placeholder="請輸入Meta訊息成本，例如250" oninput="updateMessagePreview()">
   </div>
 
   <div class="field">
-    <label for="dailyMessages">2. 期望<span class="red">每項</span>單日訊息數：</label>
-    <p class="hint">
-      依照診所人力，預估<span class="red">每個投廣項目</span>的<span class="red">單日目標訊息數</span>
-    </p>
-    <input id="dailyMessages" type="number" min="1" placeholder="請輸入目標訊息數，例如10" oninput="updateMessagePreview()">
-    <span class="live-helper">您期望的每日訊息數為：<span class="live-value" id="dailyTotalMessagesAmount">0</span> 個</span>
+    <label for="dailyMessages">2. 單日目標訊息數：</label>
+    <input id="dailyMessages" type="number" min="1" placeholder="評估診所人力，大致預估每日可處理的最大訊息量" oninput="updateMessagePreview()">
   </div>
 
-  <button type="button" onclick="calculateMetaBudget()">計算廣告月預算</button>
+  <button type="button" onclick="calculateMetaBudget()">計算廣告費</button>
 
   <div class="error" id="errorMessage">請輸入大於 0 的有效數字。</div>
 
   <div class="result" id="resultBox">
-    <div class="result-label">預估月預算</div>
+    <div class="result-label">預估廣告費</div>
     <div class="result-amount" id="resultAmount">$0元</div>
+
     <div class="result-extra">
       <div class="result-extra-label">預估每月目標訊息數為</div>
       <div class="result-extra-amount"><span id="monthlyTargetMessagesAmount">0</span> 個</div>
+      <p class="formula-note">預估月預算 = 每月目標訊息數 x 目標KPI</p>
     </div>
-    <p class="result-note">
-      以上費用不含服務費、素材費<br>
-      現在填單申請廣告代操服務，服務費最低<span class="red">12%</span>起，把握優惠！
-    </p>
+
+    <div class="service-section">
+      <h3 class="service-title">服務內容</h3>
+      <div class="service-content">
+        <div class="pie-chart" id="servicePieChart" aria-label="服務內容圓餅圖：廣告代操服務30%、廣告提案20%、廣告素材規劃20%、優化來店預約30%"></div>
+        <ul class="service-list">
+          <li><span><span class="service-dot blue"></span>廣告代操服務</span><strong>30%</strong></li>
+          <li><span><span class="service-dot purple"></span>廣告提案</span><strong>20%</strong></li>
+          <li><span><span class="service-dot orange"></span>廣告素材規劃</span><strong>20%</strong></li>
+          <li><span><span class="service-dot red-dot"></span>優化來店預約</span><strong>30%</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="cta-text">現在諮詢服務費最低<span class="old-rate"><del>20%</del></span><span class="red">12%</span>起。</p>
+    <div class="countdown" id="countdownTimer">03天00小時19分00秒</div>
   </div>
 
   <div class="mc-form-wrap" id="mailchimpFormWrap">
     <h3 class="mc-form-title">申請廣告代操服務</h3>
-    <p class="mc-form-subtitle">請寫下您的需求，我將盡快與您取得聯繫，提供報價、評估提案!</p>
+    <p class="mc-form-subtitle">請寫下您的需求，我將盡快與您取得聯繫，提供報價與提案!</p>
 
     <form 
       action="https://gmail.us18.list-manage.com/subscribe/post-json?u=d8aec5c2dc0113ac6f6838390&id=b57987c492&f_id=00bcace6f0"
@@ -303,9 +446,9 @@
       </div>
 
       <div class="field">
-        <label for="mce-MMERGE11">預估月預算 <span class="asterisk">*</span></label>
+        <label for="mce-MMERGE11">預估廣告費 <span class="asterisk">*</span></label>
         <input type="number" name="MMERGE11" id="mce-MMERGE11" required min="1">
-        <span class="helper_text">系統會自動帶入剛剛預估的廣告月預算，也可自行調整。</span>
+        <span class="helper_text">系統會自動帶入剛剛預估的廣告費，也可自行調整。</span>
       </div>
 
       <div class="field">
@@ -323,23 +466,60 @@
   </div>
 
   <script>
+    let countdownSeconds = (3 * 24 * 60 * 60) + (19 * 60);
+    let countdownStarted = false;
+    let countdownInterval = null;
+
+    function formatMoney(value) {
+      return "$" + Number(value || 0).toLocaleString("zh-TW") + "元";
+    }
+
     function updateMessagePreview() {
-      const itemCount = Number(document.getElementById("itemCount").value);
       const dailyMessages = Number(document.getElementById("dailyMessages").value);
-      const dailyTotalMessagesAmount = document.getElementById("dailyTotalMessagesAmount");
+      return dailyMessages > 0 ? dailyMessages : 0;
+    }
 
-      if (!itemCount || !dailyMessages || itemCount <= 0 || dailyMessages <= 0) {
-        dailyTotalMessagesAmount.textContent = "0";
-        return 0;
-      }
+    function animateServicePieChart() {
+      const pieChart = document.getElementById("servicePieChart");
+      if (!pieChart) return;
+      pieChart.classList.remove("animate");
+      void pieChart.offsetWidth;
+      pieChart.classList.add("animate");
+    }
 
-      const dailyTotalMessages = itemCount * dailyMessages;
-      dailyTotalMessagesAmount.textContent = dailyTotalMessages.toLocaleString("zh-TW");
-      return dailyTotalMessages;
+    function padTime(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdownDisplay() {
+      const countdownTimer = document.getElementById("countdownTimer");
+      if (!countdownTimer) return;
+
+      const days = Math.floor(countdownSeconds / 86400);
+      const hours = Math.floor((countdownSeconds % 86400) / 3600);
+      const minutes = Math.floor((countdownSeconds % 3600) / 60);
+      const seconds = countdownSeconds % 60;
+
+      countdownTimer.textContent = padTime(days) + "天" + padTime(hours) + "小時" + padTime(minutes) + "分" + padTime(seconds) + "秒";
+    }
+
+    function startCountdown() {
+      updateCountdownDisplay();
+      if (countdownStarted) return;
+
+      countdownStarted = true;
+      countdownInterval = setInterval(function() {
+        if (countdownSeconds > 0) {
+          countdownSeconds -= 1;
+          updateCountdownDisplay();
+        } else {
+          clearInterval(countdownInterval);
+        }
+      }, 1000);
     }
 
     function calculateMetaBudget() {
-      const itemCount = Number(document.getElementById("itemCount").value);
+      const metaMessageCost = Number(document.getElementById("metaMessageCost").value);
       const dailyMessages = Number(document.getElementById("dailyMessages").value);
       const resultBox = document.getElementById("resultBox");
       const resultAmount = document.getElementById("resultAmount");
@@ -348,7 +528,7 @@
       const budgetInput = document.getElementById("mce-MMERGE11");
       const monthlyTargetMessagesAmount = document.getElementById("monthlyTargetMessagesAmount");
 
-      if (!itemCount || !dailyMessages || itemCount <= 0 || dailyMessages <= 0) {
+      if (!metaMessageCost || !dailyMessages || metaMessageCost <= 0 || dailyMessages <= 0) {
         resultBox.style.display = "none";
         mailchimpFormWrap.style.display = "none";
         errorMessage.style.display = "block";
@@ -357,17 +537,19 @@
         return;
       }
 
-      const dailyTotalMessages = updateMessagePreview();
-      const monthlyTargetMessages = dailyTotalMessages * 30;
-      const monthlyBudget = monthlyTargetMessages * 250;
+      const dailyTargetMessages = updateMessagePreview();
+      const monthlyTargetMessages = dailyTargetMessages * 30;
+      const monthlyBudget = monthlyTargetMessages * metaMessageCost;
 
-      resultAmount.textContent = "$" + monthlyBudget.toLocaleString("zh-TW") + "元";
+      resultAmount.textContent = formatMoney(monthlyBudget);
       monthlyTargetMessagesAmount.textContent = monthlyTargetMessages.toLocaleString("zh-TW");
       budgetInput.value = monthlyBudget;
 
       errorMessage.style.display = "none";
       resultBox.style.display = "block";
       mailchimpFormWrap.style.display = "block";
+      animateServicePieChart();
+      startCountdown();
 
       setTimeout(function() {
         mailchimpFormWrap.scrollIntoView({
@@ -400,7 +582,7 @@
         { id: "mce-NAME", label: "聯絡人姓名" },
         { id: "mce-PHONE", label: "聯絡電話" },
         { id: "mce-MMERGE9", label: "公司統編" },
-        { id: "mce-MMERGE11", label: "預估月預算" }
+        { id: "mce-MMERGE11", label: "預估廣告費" }
       ];
 
       for (const field of fields) {
@@ -499,6 +681,8 @@
       document.body.appendChild(script);
       return false;
     }
+
     updateMessagePreview();
+    updateCountdownDisplay();
   </script>
 </div>
