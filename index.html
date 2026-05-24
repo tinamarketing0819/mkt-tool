@@ -372,7 +372,7 @@
 
   <div class="field">
     <label for="dailyMessages">2. 單日目標訊息數：</label>
-    <input id="dailyMessages" type="number" min="1" placeholder="評估診所人力，大致預估每日可處理的最大訊息量" oninput="updateMessagePreview()">
+    <input id="dailyMessages" type="number" min="1" placeholder="評估診所人力，大致抓出每日可處理的最大訊息量" oninput="updateMessagePreview()">
   </div>
 
   <button type="button" onclick="calculateMetaBudget()">計算廣告費</button>
@@ -380,7 +380,7 @@
   <div class="error" id="errorMessage">請輸入大於 0 的有效數字。</div>
 
   <div class="result" id="resultBox">
-    <div class="result-label">預估廣告費</div>
+    <div class="result-label">預估每月廣告費為</div>
     <div class="result-amount" id="resultAmount">$0元</div>
 
     <div class="result-extra">
@@ -402,7 +402,7 @@
       </div>
     </div>
 
-    <p class="cta-text">現在諮詢服務費最低<span class="old-rate"><del>20%</del></span><span class="red">12%</span>起。</p>
+    <p class="cta-text">現在諮詢服務費最低<span class="old-rate"><del>20%</del></span><span class="red">12%</span>起，把握最佳優惠！</p>
     <div class="countdown" id="countdownTimer">03天00小時19分00秒</div>
   </div>
 
