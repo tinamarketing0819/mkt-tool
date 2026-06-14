@@ -1,0 +1,292 @@
+
+<style>
+:root{--blue:#378ADD;--teal:#1D9E75;--amber:#BA7517;--pink:#D4537E;--gray:#888780;--lgray:#B4B2A9;--purple:#534AB7;--coral:#D85A30;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans,sans-serif);color:var(--color-text-primary);}
+.hero{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.hero-left h1{font-size:20px;font-weight:500;margin-bottom:4px;}
+.hero-left p{font-size:13px;color:var(--color-text-secondary);}
+.hero-badge{background:var(--color-background-info);color:var(--color-text-info);font-size:11px;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+.section-title{font-size:13px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.75rem;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-bottom:1.5rem;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;}
+.metric-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center;}
+.metric-label{font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;}
+.metric-val{font-size:22px;font-weight:500;}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:12px;margin:2px 2px 2px 0;}
+.tag-blue{background:#E6F1FB;color:#0C447C;}
+.tag-teal{background:#E1F5EE;color:#085041;}
+.tag-amber{background:#FAEEDA;color:#633806;}
+.tag-pink{background:#FBEAF0;color:#72243E;}
+.tag-gray{background:#F1EFE8;color:#444441;}
+.tag-purple{background:#EEEDFE;color:#3C3489;}
+.dot{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:5px;}
+.badge-rank{font-size:11px;padding:2px 8px;border-radius:12px;font-weight:500;}
+.rank-win{background:#E1F5EE;color:#085041;}
+.rank-lose{background:#FCEBEB;color:#791F1F;}
+.progress-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.progress-bar{flex:1;height:8px;border-radius:4px;background:var(--color-background-secondary);overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;}
+.left-accent{border-left:3px solid;border-radius:0;padding-left:12px;margin-bottom:10px;}
+.channel-icon{font-size:18px;color:var(--color-text-secondary);}
+</style>
+
+<div style="padding:1.5rem 0 2rem;">
+
+<h2 class="sr-only">大安頤和健康診所品牌分析報告</h2>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>大安頤和健康診所 <span class="hero-badge">預防醫學</span></h1>
+    <p style="margin-top:4px;"><i class="ti ti-map-pin" aria-hidden="true" style="font-size:13px;"></i> 台北市大安區信義路四段44號1樓 &nbsp;|&nbsp; <a href="https://www.daihclinic.com/" style="color:var(--color-text-info);font-size:13px;">daihclinic.com</a> &nbsp;|&nbsp; 分析日期：2026.06.14</p>
+  </div>
+  <div style="text-align:right;">
+    <p style="font-size:12px;color:var(--color-text-secondary);">初次開發提案用</p>
+    <p style="font-size:12px;color:var(--color-text-secondary);">廣告需求分析報告</p>
+  </div>
+</div>
+
+<!-- 1. 診所定位 -->
+<p class="section-title"><i class="ti ti-target" aria-hidden="true"></i> 01 · 診所定位</p>
+<div class="grid3" style="margin-bottom:1.5rem;">
+  <div class="card" style="border-left:3px solid var(--blue);border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0;">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;"><i class="ti ti-flag" aria-hidden="true"></i> 定位標語</p>
+    <p style="font-size:14px;font-weight:500;">「親切・專業・安心」<br>一站式健康管理</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--teal);border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0;">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;"><i class="ti ti-building" aria-hidden="true"></i> 診所類型</p>
+    <p style="font-size:14px;font-weight:500;">社區型預防醫學診所<br>兼具健檢 × 療程調理</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--amber);border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0;">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;"><i class="ti ti-sparkles" aria-hidden="true"></i> 核心差異</p>
+    <p style="font-size:14px;font-weight:500;">健檢＋調理＋淨化<br>三合一整合醫療</p>
+  </div>
+</div>
+
+<!-- 2. 受眾輪廓 -->
+<p class="section-title"><i class="ti ti-users" aria-hidden="true"></i> 02 · 受眾輪廓</p>
+<div class="grid4">
+  <div class="metric-card">
+    <p class="metric-label">主要性別</p>
+    <p class="metric-val" style="color:var(--blue);">女 55%</p>
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;">男 45%</p>
+  </div>
+  <div class="metric-card">
+    <p class="metric-label">核心年齡層</p>
+    <p class="metric-val" style="color:var(--teal);">35–55</p>
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;">歲</p>
+  </div>
+  <div class="metric-card">
+    <p class="metric-label">地區</p>
+    <p class="metric-val" style="font-size:16px;color:var(--amber);">大安・信義・松山</p>
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;">台北市核心商辦圈</p>
+  </div>
+  <div class="metric-card">
+    <p class="metric-label">客層身份</p>
+    <p class="metric-val" style="font-size:15px;color:var(--purple);">白領・家管・退休族</p>
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;">中高消費族群</p>
+  </div>
+</div>
+<div class="card" style="margin-bottom:1.5rem;">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:8px;">受眾興趣標籤</p>
+  <span class="tag tag-blue">健康管理</span>
+  <span class="tag tag-blue">預防醫學</span>
+  <span class="tag tag-teal">抗衰老</span>
+  <span class="tag tag-teal">營養補充</span>
+  <span class="tag tag-amber">企業主/高管</span>
+  <span class="tag tag-amber">慢性病三高</span>
+  <span class="tag tag-pink">亞健康改善</span>
+  <span class="tag tag-pink">更年期保健</span>
+  <span class="tag tag-gray">上班族壓力族</span>
+  <span class="tag tag-gray">慢性疲勞</span>
+</div>
+
+<!-- 3. 品類分析 -->
+<p class="section-title"><i class="ti ti-chart-pie" aria-hidden="true"></i> 03 · 品類分析（推估廣告佔比）</p>
+<div class="grid2">
+  <div class="card">
+    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:12px;">推估廣告預算分配比例（競品觀察視角，非實際數據）</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+      <span style="display:flex;align-items:center;font-size:12px;color:var(--color-text-secondary);"><span class="dot" style="background:#378ADD;"></span>血液淨化 35%</span>
+      <span style="display:flex;align-items:center;font-size:12px;color:var(--color-text-secondary);"><span class="dot" style="background:#1D9E75;"></span>個人健檢 25%</span>
+      <span style="display:flex;align-items:center;font-size:12px;color:var(--color-text-secondary);"><span class="dot" style="background:#BA7517;"></span>瘦瘦針 15%</span>
+      <span style="display:flex;align-items:center;font-size:12px;color:var(--color-text-secondary);"><span class="dot" style="background:#D4537E;"></span>靜脈雷射 12%</span>
+      <span style="display:flex;align-items:center;font-size:12px;color:var(--color-text-secondary);"><span class="dot" style="background:#534AB7;"></span>營養點滴 8%</span>
+      <span style="display:flex;align-items:center;font-size:12px;color:var(--color-text-secondary);"><span class="dot" style="background:#B4B2A9;"></span>其他 5%</span>
+    </div>
+    <div style="position:relative;width:100%;height:220px;">
+      <canvas id="pieChart" role="img" aria-label="品類廣告比例圓餅圖，血液淨化35%、健檢25%、瘦瘦針15%、靜脈雷射12%、營養點滴8%、其他5%">血液淨化35%、個人健檢25%、瘦瘦針15%、靜脈雷射12%、營養點滴8%、其他5%</canvas>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:.75rem;">
+    <div class="card" style="border-left:3px solid #378ADD;border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <p style="font-size:13px;font-weight:500;">血液淨化（MCS+）</p>
+        <span style="font-size:12px;color:#0C447C;background:#E6F1FB;padding:2px 8px;border-radius:12px;">★ 主力 35%</span>
+      </div>
+      <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">• 90分鐘完成，比傳統快一倍<br>• 高獨特性，差異化明顯<br>• 客單高，轉換意圖強</p>
+      <div style="margin-top:6px;"><span class="tag tag-blue">血液淨化</span><span class="tag tag-blue">血管保養</span><span class="tag tag-blue">三高族</span></div>
+    </div>
+    <div class="card" style="border-left:3px solid #1D9E75;border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <p style="font-size:13px;font-weight:500;">個人健檢</p>
+        <span style="font-size:12px;color:#085041;background:#E1F5EE;padding:2px 8px;border-radius:12px;">流量磁鐵 25%</span>
+      </div>
+      <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">• 客製化方案，血液+心電圖+超音波<br>• 企業健檢B2B潛力大<br>• 引流後可交叉推療程</p>
+      <div style="margin-top:6px;"><span class="tag tag-teal">健康檢查</span><span class="tag tag-teal">企業健檢</span><span class="tag tag-teal">個人健檢</span></div>
+    </div>
+    <div class="card" style="border-left:3px solid #BA7517;border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <p style="font-size:13px;font-weight:500;">瘦瘦針</p>
+        <span style="font-size:12px;color:#633806;background:#FAEEDA;padding:2px 8px;border-radius:12px;">話題性 15%</span>
+      </div>
+      <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">• 一週一針，市場搜尋量高<br>• 搭配代謝調整，差異訴求<br>• 搜尋意圖強烈</p>
+      <div style="margin-top:6px;"><span class="tag tag-amber">瘦瘦針</span><span class="tag tag-amber">減重</span><span class="tag tag-amber">代謝</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. 競品觀察 -->
+<p class="section-title"><i class="ti ti-trophy" aria-hidden="true"></i> 04 · 競品觀察排行榜</p>
+<div class="card" style="margin-bottom:1.5rem;">
+  <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:12px;">以核心競爭維度評比（★★★ 強 / ★★ 中 / ★ 弱），排列順序：競品A → 品牌 → 競品B</p>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;">
+      <colgroup><col style="width:22%"><col style="width:26%"><col style="width:26%"><col style="width:26%"></colgroup>
+      <thead>
+        <tr style="background:var(--color-background-secondary);">
+          <td style="padding:8px 12px;font-size:12px;color:var(--color-text-secondary);font-weight:500;">競爭維度</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:500;color:#0C447C;border-bottom:2px solid #378ADD;">🏆 聯安診所</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:500;color:var(--color-text-primary);border-bottom:3px solid var(--amber);">👆 大安頤和</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:500;color:#633806;border-bottom:2px solid #BA7517;">💡 美好健康診所</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:0.5px solid var(--color-border-tertiary);">
+          <td style="padding:8px 12px;color:var(--color-text-secondary);">品牌知名度</td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">30萬人次紀錄</span></td>
+          <td style="padding:8px 12px;text-align:center;">★ <span style="font-size:11px;color:var(--color-text-secondary);">新興品牌</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★ <span style="font-size:11px;color:var(--color-text-secondary);">整合醫學定位</span></td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--color-border-tertiary);background:var(--color-background-secondary);">
+          <td style="padding:8px 12px;color:var(--color-text-secondary);">血液淨化專項</td>
+          <td style="padding:8px 12px;text-align:center;">★ <span style="font-size:11px;color:var(--color-text-secondary);">非主力</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">主打服務</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★ <span style="font-size:11px;color:var(--color-text-secondary);">有提供</span></td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--color-border-tertiary);">
+          <td style="padding:8px 12px;color:var(--color-text-secondary);">親近感/溫度</td>
+          <td style="padding:8px 12px;text-align:center;">★★ <span style="font-size:11px;color:var(--color-text-secondary);">精緻VIP感</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">社區親切型</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★ <span style="font-size:11px;color:var(--color-text-secondary);">科技感強</span></td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--color-border-tertiary);background:var(--color-background-secondary);">
+          <td style="padding:8px 12px;color:var(--color-text-secondary);">服務完整度</td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">五大健康領域</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">一站式8項</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">功能醫學深入</span></td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;color:var(--color-text-secondary);">價格親近性</td>
+          <td style="padding:8px 12px;text-align:center;">★ <span style="font-size:11px;color:var(--color-text-secondary);">高端定價</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★★ <span style="font-size:11px;color:var(--color-text-secondary);">中高親民</span></td>
+          <td style="padding:8px 12px;text-align:center;">★★ <span style="font-size:11px;color:var(--color-text-secondary);">中高定位</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:.75rem;flex-wrap:wrap;">
+    <div style="flex:1;min-width:200px;background:#E1F5EE;border-radius:var(--border-radius-md);padding:10px 12px;">
+      <p style="font-size:12px;font-weight:500;color:#085041;margin-bottom:4px;"><i class="ti ti-circle-check" aria-hidden="true"></i> 相較聯安的最大優勢</p>
+      <p style="font-size:12px;color:#0F6E56;">血液淨化專項更強、社區親切感、一站式但不失人情味，且定價不過度高端，中產客層更易進入</p>
+    </div>
+    <div style="flex:1;min-width:200px;background:#FCEBEB;border-radius:var(--border-radius-md);padding:10px 12px;">
+      <p style="font-size:12px;font-weight:500;color:#791F1F;margin-bottom:4px;"><i class="ti ti-alert-circle" aria-hidden="true"></i> 相較聯安的最大劣勢</p>
+      <p style="font-size:12px;color:#A32D2D;">品牌知名度差距懸殊，口碑積累不足，尚無30萬人次的信任背書，需靠廣告快速建立曝光</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. 廣告投放渠道 -->
+<p class="section-title"><i class="ti ti-speakerphone" aria-hidden="true"></i> 05 · 廣告投放渠道建議</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1.5rem;">
+  <div class="card" style="border-top:3px solid #378ADD;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <i class="ti ti-search" aria-hidden="true" style="font-size:18px;color:#378ADD;"></i>
+      <p style="font-size:14px;font-weight:500;">Google 搜尋廣告</p>
+    </div>
+    <div class="progress-row"><span style="font-size:11px;color:var(--color-text-secondary);width:40px;">優先</span><div class="progress-bar"><div class="progress-fill" style="width:90%;background:#378ADD;"></div></div><span style="font-size:11px;font-weight:500;">高</span></div>
+    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">捕捉「血液淨化台北」「瘦瘦針大安」等高意圖搜尋詞，精準截客</p>
+    <div style="margin-top:8px;"><span class="tag tag-blue">搜尋意圖高</span><span class="tag tag-blue">即時轉換</span></div>
+  </div>
+  <div class="card" style="border-top:3px solid #1D9E75;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <i class="ti ti-brand-facebook" aria-hidden="true" style="font-size:18px;color:#1D9E75;"></i>
+      <p style="font-size:14px;font-weight:500;">Meta 廣告（FB/IG）</p>
+    </div>
+    <div class="progress-row"><span style="font-size:11px;color:var(--color-text-secondary);width:40px;">優先</span><div class="progress-bar"><div class="progress-fill" style="width:85%;background:#1D9E75;"></div></div><span style="font-size:11px;font-weight:500;">高</span></div>
+    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">受眾年齡35–55歲，FB/IG活躍度高，適合影片療程解說與口碑素材</p>
+    <div style="margin-top:8px;"><span class="tag tag-teal">受眾精準</span><span class="tag tag-teal">再行銷</span></div>
+  </div>
+  <div class="card" style="border-top:3px solid #BA7517;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <i class="ti ti-brand-youtube" aria-hidden="true" style="font-size:18px;color:#BA7517;"></i>
+      <p style="font-size:14px;font-weight:500;">YouTube / GDN</p>
+    </div>
+    <div class="progress-row"><span style="font-size:11px;color:var(--color-text-secondary);width:40px;">次要</span><div class="progress-bar"><div class="progress-fill" style="width:55%;background:#BA7517;"></div></div><span style="font-size:11px;font-weight:500;">中</span></div>
+    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">診所環境實拍與醫師說明短片，建立信任感，適合健檢與血液淨化教育型內容</p>
+    <div style="margin-top:8px;"><span class="tag tag-amber">教育型內容</span><span class="tag tag-amber">品牌形象</span></div>
+  </div>
+  <div class="card" style="border-top:3px solid #D4537E;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <i class="ti ti-brand-instagram" aria-hidden="true" style="font-size:18px;color:#D4537E;"></i>
+      <p style="font-size:14px;font-weight:500;">Instagram / KOL</p>
+    </div>
+    <div class="progress-row"><span style="font-size:11px;color:var(--color-text-secondary);width:40px;">次要</span><div class="progress-bar"><div class="progress-fill" style="width:65%;background:#D4537E;"></div></div><span style="font-size:11px;font-weight:500;">中高</span></div>
+    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">女性35–45歲IG活躍，可合作健康類KOL體驗分享，強化口碑信任</p>
+    <div style="margin-top:8px;"><span class="tag tag-pink">口碑擴散</span><span class="tag tag-pink">視覺呈現</span></div>
+  </div>
+  <div class="card" style="border-top:3px solid #534AB7;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <i class="ti ti-brand-line" aria-hidden="true" style="font-size:18px;color:#534AB7;"></i>
+      <p style="font-size:14px;font-weight:500;">LINE 官方帳號</p>
+    </div>
+    <div class="progress-row"><span style="font-size:11px;color:var(--color-text-secondary);width:40px;">輔助</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#534AB7;"></div></div><span style="font-size:11px;font-weight:500;">中高</span></div>
+    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">已有LINE掛號入口，可作再行銷推播、優惠活動通知，回購率提升利器</p>
+    <div style="margin-top:8px;"><span class="tag tag-purple">留客再行銷</span><span class="tag tag-purple">推播通知</span></div>
+  </div>
+</div>
+
+<div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;font-size:12px;color:var(--color-text-secondary);">
+  <i class="ti ti-info-circle" aria-hidden="true"></i> 本報告所有推估數據均基於公開資訊分析，非實際後台數據。廣告佔比僅供提案參考，正式投放仍需A/B測試驗證。
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('pieChart'),{
+  type:'doughnut',
+  data:{
+    labels:['血液淨化','個人健檢','瘦瘦針','靜脈雷射','營養點滴','其他'],
+    datasets:[{
+      data:[35,25,15,12,8,5],
+      backgroundColor:['#378ADD','#1D9E75','#BA7517','#D4537E','#534AB7','#B4B2A9'],
+      borderWidth:2,
+      borderColor:'transparent'
+    }]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    cutout:'60%',
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:function(c){return c.label+': '+c.raw+'%';}}}
+    }
+  }
+});
+</script>
